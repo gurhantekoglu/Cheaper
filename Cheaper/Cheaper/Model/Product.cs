@@ -8,9 +8,9 @@ namespace Cheaper.Model
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
         public string ShopName { get; set; }
         public string ProductPhotoUrl { get; set; }
-        public double PriceDate { get; set; }
+        public double Price { get; set; }
+        public DateTime PriceDate { get; set; }
     }
 }

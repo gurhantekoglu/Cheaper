@@ -9,7 +9,7 @@ namespace Cheaper.Model
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string ProfilePhoto { get; set; }
+        public string ProfilePhotoUrl { get; set; }
 
     }
 }
