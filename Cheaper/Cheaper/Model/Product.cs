@@ -10,7 +10,7 @@ namespace Cheaper.Model
         public string Name { get; set; }
         public string Price { get; set; }
         public string ShopName { get; set; }
-        public double PriceDate { get; set; }
         public string ProductPhotoUrl { get; set; }
+        public double PriceDate { get; set; }
     }
 }
