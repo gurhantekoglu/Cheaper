@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cheaper.View.Introduction;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace Cheaper
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new IntroductionPage();
         }
 
         protected override void OnStart()

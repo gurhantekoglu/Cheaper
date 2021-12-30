@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cheaper.View.Introduction.IntroductionPage"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
+    <StackLayout Padding="40">
+
+        <Image x:Name="logo" Aspect="AspectFit"/>
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <cv:CarouselViewControl x:Name="cvInformationPages" ShowIndicators="true" IndicatorsShape="Circle" IndicatorsTintColor="LightGray"
+                                CurrentPageIndicatorTintColor="#4285F4" Orientation="Horizontal" InterPageSpacing="0"  
+                                ItemsSource="{Binding InformationPageItems}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                                AnimateTransition="True">
+                <cv:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="15" Spacing="20">
+                                <Image Source="{Binding Image}"
+                                   Aspect="AspectFit"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                                <Label x:Name="CaptionTxt"
+                                       Text="{Binding Description}"
+                                       FontSize="Body"
+                                       HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </cv:CarouselViewControl.ItemTemplate>
+            </cv:CarouselViewControl>
+        </Grid>
+
+        <Button Text="İleri"
+                TextColor="White"
+                BackgroundColor="#4285F4"
+                HorizontalOptions="End"
+                BorderRadius="5"
+                TextTransform="None"/>
+
+    </StackLayout>
+</ContentPage>

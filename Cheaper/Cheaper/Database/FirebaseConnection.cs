@@ -27,16 +27,16 @@ namespace Cheaper.Database
                   UserId = item.Object.UserId,
                   Username = item.Object.Username,
                   Password = item.Object.Password,
-                  ProfilePhoto = item.Object.ProfilePhoto
+                  ProfilePhotoUrl = item.Object.ProfilePhotoUrl
               }).ToList();
         }
 
-        public async Task AddUser(int userId, string username, string password, string profilePhoto)
+        public async Task AddUser(int userId, string username, string password, string profilePhotoUrl)
         {
 
             await firebase
               .Child("Users")
-              .PostAsync(new User() { UserId = userId, Username = username, Password = password, ProfilePhoto = profilePhoto });
+              .PostAsync(new User() { UserId = userId, Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
         }
 
         public async Task<User> GetUser(int userId)
@@ -48,7 +48,7 @@ namespace Cheaper.Database
             return allUsers.Where(a => a.UserId == userId).FirstOrDefault();
         }
 
-        public async Task UpdateUser(int userId, string username, string password, string profilePhoto)
+        public async Task UpdateUser(int userId, string username, string password, string profilePhotoUrl)
         {
             var toUpdateUser = (await firebase
               .Child("Users")
@@ -57,7 +57,7 @@ namespace Cheaper.Database
             await firebase
               .Child("Users")
               .Child(toUpdateUser.Key)
-              .PutAsync(new User() { UserId = userId, Username = username, Password = password, ProfilePhoto = profilePhoto });
+              .PutAsync(new User() { UserId = userId, Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
         }
 
         public async Task DeleteUser(int userId)
