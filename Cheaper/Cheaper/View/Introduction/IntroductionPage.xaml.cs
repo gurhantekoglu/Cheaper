@@ -1,4 +1,5 @@
 ﻿using Cheaper.Model;
+using Cheaper.View.SignIn;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace Cheaper.View.Introduction
             logo.Source = ImageSource.FromResource("Cheaper.View.cheaper_logo.png");
 
             this.BindingContext = this;
+        }
+
+        async void Next_Page(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignInPage());
         }
 
         private Timer timer;

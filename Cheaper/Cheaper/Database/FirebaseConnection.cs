@@ -24,7 +24,6 @@ namespace Cheaper.Database
               .Child("Users")
               .OnceAsync<User>()).Select(item => new User
               {
-                  UserId = item.Object.UserId,
                   Username = item.Object.Username,
                   Password = item.Object.Password,
                   ProfilePhotoUrl = item.Object.ProfilePhotoUrl
@@ -36,35 +35,35 @@ namespace Cheaper.Database
 
             await firebase
               .Child("Users")
-              .PostAsync(new User() { UserId = userId, Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
+              .PostAsync(new User() { Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
         }
 
-        public async Task<User> GetUser(int userId)
+        public async Task<User> GetUser(string username)
         {
             var allUsers = await GetAllUsers();
             await firebase
               .Child("Users")
               .OnceAsync<User>();
-            return allUsers.Where(a => a.UserId == userId).FirstOrDefault();
+            return allUsers.Where(a => a.Username == username).FirstOrDefault();
         }
 
-        public async Task UpdateUser(int userId, string username, string password, string profilePhotoUrl)
+        public async Task UpdateUser(string username, string password, string profilePhotoUrl)
         {
             var toUpdateUser = (await firebase
               .Child("Users")
-              .OnceAsync<User>()).Where(a => a.Object.UserId == userId).FirstOrDefault();
+              .OnceAsync<User>()).Where(a => a.Object.Username == username).FirstOrDefault();
 
             await firebase
               .Child("Users")
               .Child(toUpdateUser.Key)
-              .PutAsync(new User() { UserId = userId, Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
+              .PutAsync(new User() { Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
         }
 
-        public async Task DeleteUser(int userId)
+        public async Task DeleteUser(string username)
         {
             var toDeleteUser = (await firebase
               .Child("Users")
-              .OnceAsync<User>()).Where(a => a.Object.UserId == userId).FirstOrDefault();
+              .OnceAsync<User>()).Where(a => a.Object.Username == username).FirstOrDefault();
             await firebase.Child("Users").Child(toDeleteUser.Key).DeleteAsync();
         }
 

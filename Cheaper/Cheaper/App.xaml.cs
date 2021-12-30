@@ -1,4 +1,5 @@
 ﻿using Cheaper.View.Introduction;
+using Cheaper.View.SignIn;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,12 +11,11 @@ namespace Cheaper
         public App()
         {
             InitializeComponent();
-
-            MainPage = new IntroductionPage();
         }
 
         protected override void OnStart()
         {
+            MainPage = new NavigationPage(new IntroductionPage());
         }
 
         protected override void OnSleep()
