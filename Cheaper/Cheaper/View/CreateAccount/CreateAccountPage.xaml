@@ -2,11 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects1="clr-namespace:Cheaper.Effects"
-             x:Class="Cheaper.View.SignIn.SignInPage"
+             x:Class="Cheaper.View.CreateAccount.CreateAccountPage"
              NavigationPage.HasNavigationBar="False">
     <StackLayout Padding="40">
         <StackLayout VerticalOptions="CenterAndExpand" Spacing="30">
             <Image x:Name="logo" Aspect="AspectFit"/>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30">
+                <Frame WidthRequest="150" HeightRequest="150">
+                    <StackLayout>
+                        <Image x:Name="UserProfilePhoto"
+                               Aspect="AspectFill"
+                               WidthRequest="100"
+                               HeightRequest="100"/>
+                        <Button x:Name="TakeImage"
+                                Text="Yükle"
+                                TextColor="#4285F4"
+                                BackgroundColor="Transparent"             
+                                BorderRadius="7"
+                                TextTransform="None"
+                                Clicked="ProfilePhotoSelect"
+                                CornerRadius="7"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            
+            
             <Frame BackgroundColor="#ecf4f7ff" Padding="5">
                 <Entry x:Name="Username" Placeholder="Kullanıcı Adı" Keyboard="Plain">
                     <Entry.Effects>
@@ -24,22 +45,23 @@
             </Frame>
 
             <StackLayout Orientation="Horizontal">
-                <Button x:Name="createAccountPage"
-                       Text="Hesap Oluşturun"
+                <Button x:Name="signInPage"
+                       Text="Oturum Aç"
                        TextColor="Gray"
                        BackgroundColor="Transparent"
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="Center"
                        BorderRadius="7"
                        TextTransform="None"
-                       Clicked="CreateAccount_Page"/>
+                       Clicked="SignIn_Page"/>
 
-                <Button Text="Oturum Aç"
+                <Button Text="Hesap Oluştur"
                     TextColor="White"
                     BackgroundColor="#4285F4"
                     HorizontalOptions="End"
                     BorderRadius="7"
-                    TextTransform="None"/>
+                    TextTransform="None"
+                    Clicked="CreateAccount_Clicked"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>

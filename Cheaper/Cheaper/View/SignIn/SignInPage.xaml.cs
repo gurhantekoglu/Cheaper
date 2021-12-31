@@ -1,4 +1,5 @@
 ﻿using Cheaper.Database;
+using Cheaper.View.CreateAccount;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace Cheaper.View.SignIn
             InitializeComponent();
 
             logo.Source = ImageSource.FromResource("Cheaper.View.cheaper_logo.png");
+        }
+        
+        async void CreateAccount_Page(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CreateAccountPage()));
         }
     }
 }
