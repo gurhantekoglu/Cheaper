@@ -39,7 +39,8 @@
                     BackgroundColor="#4285F4"
                     HorizontalOptions="End"
                     BorderRadius="7"
-                    TextTransform="None"/>
+                    TextTransform="None"
+                    Clicked="Home_Page"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>

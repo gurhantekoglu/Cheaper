@@ -35,14 +35,6 @@ namespace Cheaper.Database
               }).ToList();
         }
 
-        public async Task AddUser(string username, string password, string profilePhotoUrl)
-        {
-
-            await firebase
-              .Child("Users")
-              .PostAsync(new User() { Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
-        }
-
         public async Task<User> GetUser(string username)
         {
             var allUsers = await GetAllUsers();
@@ -50,6 +42,13 @@ namespace Cheaper.Database
               .Child("Users")
               .OnceAsync<User>();
             return allUsers.Where(a => a.Username == username).FirstOrDefault();
+        }
+
+        public async Task AddUser(string username, string password, string profilePhotoUrl)
+        {
+            await firebase
+              .Child("Users")
+              .PostAsync(new User() { Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
         }
 
         public async Task UpdateUser(string username, string password, string profilePhotoUrl)
@@ -72,6 +71,24 @@ namespace Cheaper.Database
             await firebase.Child("Users").Child(toDeleteUser.Key).DeleteAsync();
         }
 
+        public async Task<User> CheckUsername(string username)
+        {
+            var allUsers = await GetAllUsers();
+            await firebase
+              .Child("Users")
+              .OnceAsync<User>();
+            return allUsers.Where(a => a.Username == username).FirstOrDefault();
+        }
+
+        public async Task<User> CheckUser(string username, string password)
+        {
+            var allUsers = await GetAllUsers();
+            await firebase
+              .Child("Users")
+              .OnceAsync<User>();
+            return allUsers.Where(a => a.Username == username && a.Password == password).FirstOrDefault();
+        }
+
         // Product Controls
 
         public async Task<List<Product>> GetAllProducts()
@@ -90,14 +107,6 @@ namespace Cheaper.Database
               }).ToList();
         }
 
-        public async Task AddProduct(int productId, string name, string shopName, string productPhotoUrl, double price, DateTime priceDate)
-        {
-
-            await firebase
-              .Child("Products")
-              .PostAsync(new Product() { ProductId = productId, Name = name, ShopName = shopName, ProductPhotoUrl = productPhotoUrl, Price = price, PriceDate = priceDate });
-        }
-
         public async Task<Product> GetProduct(int productId)
         {
             var allProducts = await GetAllProducts();
@@ -105,6 +114,14 @@ namespace Cheaper.Database
               .Child("Products")
               .OnceAsync<Product>();
             return allProducts.Where(a => a.ProductId == productId).FirstOrDefault();
+        }
+
+        public async Task AddProduct(int productId, string name, string shopName, string productPhotoUrl, double price, DateTime priceDate)
+        {
+
+            await firebase
+              .Child("Products")
+              .PostAsync(new Product() { ProductId = productId, Name = name, ShopName = shopName, ProductPhotoUrl = productPhotoUrl, Price = price, PriceDate = priceDate });
         }
 
         public async Task UpdateProduct(int productId, string name, string shopName, string productPhotoUrl, double price, DateTime priceDate)

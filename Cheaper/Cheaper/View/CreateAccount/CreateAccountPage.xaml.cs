@@ -64,16 +64,23 @@ namespace Cheaper.View.CreateAccount
             }
         }
 
-        async void SignIn_Page(object sender, EventArgs e)
+        private async void SignIn_Page(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
-
         private async void CreateAccount_Clicked(object sender, EventArgs e)
         {
-            await firebaseConnection.AddUser(Username.Text, Password.Text, Convert.ToString(UserProfilePhoto.Source));
-            await DisplayAlert("Hesap Oluşturuldu", "Hesabınız oluşturuldu, oturum açabilirsiniz.", "Tamam");
-            await Navigation.PopModalAsync();
+            var Auth = await firebaseConnection.CheckUsername(Username.Text);
+            if (Auth != null)
+            {
+                await DisplayAlert("Hata", "Kullanıcı adı zaten kullanılıyor.", "Tamam");
+            }
+            else
+            {
+                await firebaseConnection.AddUser(Username.Text, Password.Text, Convert.ToString(UserProfilePhoto.Source));
+                await DisplayAlert("Hesap Oluşturuldu", "Hesabınız oluşturuldu, oturum açabilirsiniz.", "Tamam");
+                await Navigation.PopModalAsync();
+            }
         }
     }
 }

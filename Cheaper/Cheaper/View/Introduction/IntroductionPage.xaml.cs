@@ -26,7 +26,7 @@ namespace Cheaper.View.Introduction
             this.BindingContext = this;
         }
 
-        async void Next_Page(object sender, EventArgs e)
+        private async void Next_Page(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignInPage());
         }
