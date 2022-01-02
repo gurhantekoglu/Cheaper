@@ -1,5 +1,6 @@
 ﻿using Cheaper.View.Introduction;
 using Cheaper.View.SignIn;
+using Cheaper.View.UserInterface;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

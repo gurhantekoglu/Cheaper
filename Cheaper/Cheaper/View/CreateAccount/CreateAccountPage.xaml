@@ -47,7 +47,7 @@
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="signInPage"
                        Text="Oturum Aç"
-                       TextColor="Gray"
+                       TextColor="#4285F4"
                        BackgroundColor="Transparent"
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="Center"

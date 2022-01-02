@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Cheaper.View.UserInterface;assembly=Cheaper"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            x:Class="Cheaper.View.UserInterface.TabbedPageNavigation"
+            NavigationPage.HasNavigationBar="False"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="White">
+    <TabbedPage.Children>
+
+        <local:HomePage IconImageSource="https://img.icons8.com/ios/50/000000/home.png"/>
+        <local:SearchPage IconImageSource="https://img.icons8.com/ios/50/000000/search--v1.png"/>
+        <local:BarcodeScanPage IconImageSource="https://img.icons8.com/ios/50/000000/camera--v3.png"/>
+        <local:FollowListPage IconImageSource="https://img.icons8.com/windows/50/000000/like--v1.png"/>
+        <local:ProfilePage IconImageSource="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-user-interface-kiranshastry-lineal-kiranshastry-1.png"/>
+
+    </TabbedPage.Children>
+</TabbedPage>

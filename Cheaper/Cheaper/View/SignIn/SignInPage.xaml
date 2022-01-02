@@ -26,7 +26,7 @@
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="createAccountPage"
                        Text="Hesap Oluşturun"
-                       TextColor="Gray"
+                       TextColor="#4285F4"
                        BackgroundColor="Transparent"
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="Center"

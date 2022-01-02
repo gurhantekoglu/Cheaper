@@ -1,6 +1,6 @@
 ﻿using Cheaper.Database;
 using Cheaper.View.CreateAccount;
-using Cheaper.View.Home;
+using Cheaper.View.UserInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace Cheaper.View.SignIn
             {
                 if (Auth != null)
                 {
-                    await Navigation.PushAsync(new HomePage());
+                    await Navigation.PushAsync(new TabbedPageNavigation());
                 }
                 else
                 {

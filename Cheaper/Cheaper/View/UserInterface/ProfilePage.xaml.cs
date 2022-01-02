@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Cheaper.View.Home
+namespace Cheaper.View.UserInterface
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class ProfilePage : ContentPage
     {
-        public HomePage()
+        public ProfilePage()
         {
             InitializeComponent();
         }
