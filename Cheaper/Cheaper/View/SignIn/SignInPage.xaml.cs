@@ -38,7 +38,7 @@ namespace Cheaper.View.SignIn
             {
                 if (Auth != null)
                 {
-                    await Navigation.PushAsync(new TabbedPageNavigation());
+                    await Navigation.PushAsync(new TabbedPageNavigation(Auth));
                 }
                 else
                 {

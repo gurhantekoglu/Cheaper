@@ -37,7 +37,7 @@
             </Frame>
 
             <Frame BackgroundColor="#ecf4f7ff" Padding="5">
-                <Entry x:Name="Password" Placeholder="Şifre" IsPassword="True" Keyboard="Plain">
+                <Entry x:Name="Password" Placeholder="Şifre" IsPassword="True" Keyboard="Plain" MaxLength="16">
                     <Entry.Effects>
                         <effects1:PlainEntry/>
                     </Entry.Effects>

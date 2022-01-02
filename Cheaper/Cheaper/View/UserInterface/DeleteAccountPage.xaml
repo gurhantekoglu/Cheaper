@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cheaper.View.UserInterface.DeleteAccountPage">
+    <StackLayout Padding="40,30" Spacing="30" VerticalOptions="Center">
+        <Label Text="Hesabımı Sil" FontSize="Title"/>
+        <Label Text="Eğer hesabınızı silerseniz tüm kaydedilen verileri kaybedeceksiniz. Onaylıyor musunuz?"/>
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="createAccountPage"
+                       Text="Hayır"
+                       TextColor="#4285F4"
+                       BackgroundColor="Transparent"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       BorderRadius="7"
+                       TextTransform="None"
+                       Clicked="BackToProfilePage"/>
+
+            <Button Text="Evet"
+                    TextColor="White"
+                    BackgroundColor="#DB4437"
+                    HorizontalOptions="End"
+                    BorderRadius="7"
+                    TextTransform="None"
+                    Clicked="DeleteMyAccount"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -51,16 +51,16 @@ namespace Cheaper.Database
               .PostAsync(new User() { Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
         }
 
-        public async Task UpdateUser(string username, string password, string profilePhotoUrl)
+        public async Task UpdateUser(User user, string newPassword)
         {
             var toUpdateUser = (await firebase
               .Child("Users")
-              .OnceAsync<User>()).Where(a => a.Object.Username == username).FirstOrDefault();
+              .OnceAsync<User>()).Where(a => a.Object.Username == user.Username).FirstOrDefault();
 
             await firebase
               .Child("Users")
               .Child(toUpdateUser.Key)
-              .PutAsync(new User() { Username = username, Password = password, ProfilePhotoUrl = profilePhotoUrl });
+              .PutAsync(new User() { Username = user.Username, Password = newPassword, ProfilePhotoUrl = user.ProfilePhotoUrl });
         }
 
         public async Task DeleteUser(string username)
@@ -151,11 +151,10 @@ namespace Cheaper.Database
 
         public async Task<string> GetUrl(string fileName, FileResult result)
         {
-            string getUrl = await new FirebaseStorage("cheaper-1939d.appspot.com")
+            return await firebaseStorage
                 .Child("ProfilePhotos")
                 .Child(fileName)
-                .PutAsync(await result.OpenReadAsync());
-            return getUrl;
+                .GetDownloadUrlAsync();
         }
     }
 }

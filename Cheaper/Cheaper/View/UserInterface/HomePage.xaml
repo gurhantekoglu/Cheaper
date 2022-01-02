@@ -2,5 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cheaper.View.UserInterface.HomePage">
-    <Label Text="Hoşgeldiniz"/>
+    <StackLayout>
+        <StackLayout Padding="40,30">
+            <Image x:Name="logo" Aspect="AspectFit"/>
+        </StackLayout>
+        <StackLayout>
+            
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

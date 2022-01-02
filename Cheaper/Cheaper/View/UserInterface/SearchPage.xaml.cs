@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cheaper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Cheaper.View.UserInterface
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchPage : ContentPage
     {
-        public SearchPage()
+        public SearchPage(User user)
         {
             InitializeComponent();
         }

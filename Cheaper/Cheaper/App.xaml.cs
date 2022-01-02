@@ -16,7 +16,7 @@ namespace Cheaper
 
         protected override void OnStart()
         {
-            MainPage = new NavigationPage(new IntroductionPage());
+            MainPage = new NavigationPage(new SignInPage());
         }
 
         protected override void OnSleep()

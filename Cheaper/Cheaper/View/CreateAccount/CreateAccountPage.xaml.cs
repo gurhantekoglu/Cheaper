@@ -77,7 +77,7 @@ namespace Cheaper.View.CreateAccount
             }
             else
             {
-                await firebaseConnection.AddUser(Username.Text, Password.Text, Convert.ToString(UserProfilePhoto.Source));
+                await firebaseConnection.AddUser(Username.Text, Password.Text, PhotoUrl.ToString());
                 await DisplayAlert("Hesap Oluşturuldu", "Hesabınız oluşturuldu, oturum açabilirsiniz.", "Tamam");
                 await Navigation.PopModalAsync();
             }
