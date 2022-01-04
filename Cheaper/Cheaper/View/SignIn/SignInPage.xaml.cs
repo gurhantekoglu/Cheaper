@@ -34,7 +34,7 @@ namespace Cheaper.View.SignIn
         private async void Home_Page(object sender, EventArgs e)
         {
             var Auth = await firebaseConnection.CheckUser(Username.Text, Password.Text);
-            if (!(string.IsNullOrEmpty(Username.Text) && string.IsNullOrEmpty(Password.Text)))
+            if (!(string.IsNullOrEmpty(Username.Text) || string.IsNullOrEmpty(Password.Text)))
             {
                 if (Auth != null)
                 {

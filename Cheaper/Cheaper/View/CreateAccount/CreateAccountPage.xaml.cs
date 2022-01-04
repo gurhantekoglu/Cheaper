@@ -70,15 +70,21 @@ namespace Cheaper.View.CreateAccount
         private async void CreateAccount_Clicked(object sender, EventArgs e)
         {
             var Auth = await firebaseConnection.CheckUsername(Username.Text);
-            if (Auth != null)
+            if(!(string.IsNullOrEmpty(Username.Text) || string.IsNullOrEmpty(Password.Text)))
             {
-                await DisplayAlert("Hata", "Kullanıcı adı zaten kullanılıyor.", "Tamam");
-            }
-            else
+                if (Auth != null)
+                {
+                    await DisplayAlert("Hata", "Kullanıcı adı zaten kullanılıyor.", "Tamam");
+                }
+                else
+                {
+                    await firebaseConnection.AddUser(Username.Text, Password.Text, PhotoUrl.ToString());
+                    await DisplayAlert("Hesap Oluşturuldu", "Hesabınız oluşturuldu, oturum açabilirsiniz.", "Tamam");
+                    await Navigation.PopModalAsync();
+                }
+            } else
             {
-                await firebaseConnection.AddUser(Username.Text, Password.Text, PhotoUrl.ToString());
-                await DisplayAlert("Hesap Oluşturuldu", "Hesabınız oluşturuldu, oturum açabilirsiniz.", "Tamam");
-                await Navigation.PopModalAsync();
+                await DisplayAlert("Hata", "Eksik bilgiler var, alanları kontrol edin.", "Tamam");
             }
         }
     }

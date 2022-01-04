@@ -67,7 +67,7 @@
                                                         BorderRadius="7"
                                                         TextTransform="None"
                                                         Clicked="ProductDetail_Page"
-                                                            CommandParameter="{Binding .}"/>
+                                                        CommandParameter="{Binding .}"/>
                                                 </StackLayout>
                                             </StackLayout>
                                         </StackLayout>
