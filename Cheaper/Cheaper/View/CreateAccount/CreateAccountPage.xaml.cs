@@ -70,7 +70,7 @@ namespace Cheaper.View.CreateAccount
         private async void CreateAccount_Clicked(object sender, EventArgs e)
         {
             var Auth = await firebaseConnection.CheckUsername(Username.Text);
-            if(!(string.IsNullOrEmpty(Username.Text) || string.IsNullOrEmpty(Password.Text)))
+            if (!(string.IsNullOrEmpty(Username.Text) || string.IsNullOrEmpty(Password.Text)))
             {
                 if (Auth != null)
                 {
@@ -82,7 +82,8 @@ namespace Cheaper.View.CreateAccount
                     await DisplayAlert("Hesap Oluşturuldu", "Hesabınız oluşturuldu, oturum açabilirsiniz.", "Tamam");
                     await Navigation.PopModalAsync();
                 }
-            } else
+            }
+            else
             {
                 await DisplayAlert("Hata", "Eksik bilgiler var, alanları kontrol edin.", "Tamam");
             }

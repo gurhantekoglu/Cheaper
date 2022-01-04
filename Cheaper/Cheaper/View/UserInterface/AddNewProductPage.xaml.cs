@@ -66,15 +66,23 @@ namespace Cheaper.View.UserInterface
         private async void AddNewProduct(object sender, EventArgs e)
         {
             var Auth = await firebaseConnection.CheckProductBarcode(ProductBarcode.Text);
-            if (Auth != null)
+            if (!(string.IsNullOrEmpty(ProductBarcode.Text) || string.IsNullOrEmpty(ProductName.Text)
+                || string.IsNullOrEmpty(Convert.ToString(Shops.SelectedItem)) || string.IsNullOrEmpty(Price.Text)))
             {
-                await DisplayAlert("Hata", "Ürün zaten önceden eklenmiş.", "Tamam");
+                if (Auth != null)
+                {
+                    await DisplayAlert("Hata", "Ürün zaten önceden eklenmiş.", "Tamam");
+                }
+                else
+                {
+                    await firebaseConnection.AddProduct(ProductBarcode.Text, ProductName.Text, Convert.ToString(Shops.SelectedItem), ProductPhotoUrl.ToString(), Convert.ToDouble(Price.Text), DateTime.Now, _user.Username);
+                    await DisplayAlert("Ürün Eklendi", "Ürün başarılı bir şekilde eklendi.", "Tamam");
+                    await Navigation.PopModalAsync();
+                }
             }
             else
             {
-                await firebaseConnection.AddProduct(ProductBarcode.Text, ProductName.Text, Convert.ToString(Shops.SelectedItem), ProductPhotoUrl.ToString(), Convert.ToDouble(Price.Text), DateTime.Now, _user.Username);
-                await DisplayAlert("Ürün Eklendi", "Ürün başarılı bir şekilde eklendi.", "Tamam");
-                await Navigation.PopModalAsync();
+                await DisplayAlert("Hata", "Eksik bilgiler var, alanları kontrol edin.", "Tamam");
             }
         }
     }
