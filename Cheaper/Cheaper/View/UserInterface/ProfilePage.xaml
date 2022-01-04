@@ -2,56 +2,58 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cheaper.View.UserInterface.ProfilePage">
-    <StackLayout>
-        <Label Text="Profilim" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="40,30"/>
-        <StackLayout Padding="40,30" Spacing="30">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Profilim" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="30,20"/>
+            <StackLayout Padding="30,30" Spacing="30">
 
-            <StackLayout Orientation="Horizontal" Spacing="30">
-                <Frame WidthRequest="50" HeightRequest="50">
-                    <StackLayout>
-                        <Image Source="{Binding ProfilePhotoUrl}"
-                        Aspect="AspectFill"
-                        WidthRequest="50"
-                        HeightRequest="50"/>
-                    </StackLayout>
-                </Frame>
-                <Label Text="{Binding Username}"
-                FontSize="Medium"
-                VerticalOptions="Center"
-                TextColor="#4285F4"
-                TextTransform="None"/>
+                <StackLayout Orientation="Horizontal" Spacing="30">
+                    <Frame WidthRequest="50" HeightRequest="50">
+                        <StackLayout>
+                            <Image Source="{Binding ProfilePhotoUrl}"
+                                   Aspect="AspectFill"
+                                   WidthRequest="50"
+                                   HeightRequest="50"/>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="{Binding Username}"
+                           FontSize="Medium"
+                           VerticalOptions="Center"
+                           TextColor="#4285F4"
+                           TextTransform="None"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Spacing="30">
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://img.icons8.com/ios/50/000000/key.png"/>
+                            <Button x:Name="changePasswordPage"
+                                Text="Şifre Değişikliği"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="Center"
+                                BorderRadius="7"
+                                TextTransform="None"
+                                Clicked="ChangePassword_Page"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://img.icons8.com/ios/50/000000/delete-forever.png"/>
+                            <Button x:Name="deleteAccountPage"
+                                Text="Hesabımı Sil"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="Center"
+                                BorderRadius="7"
+                                TextTransform="None"
+                                Clicked="DeleteAccount_Page"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
             </StackLayout>
-
-            <StackLayout Orientation="Vertical" Spacing="30">
-                <Frame CornerRadius="10">
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="https://img.icons8.com/ios/50/000000/key.png"/>
-                        <Button x:Name="changePasswordPage"
-                            Text="Şifre Değişikliği"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="StartAndExpand"
-                            VerticalOptions="Center"
-                            BorderRadius="7"
-                            TextTransform="None"
-                            Clicked="ChangePassword_Page"/>
-                    </StackLayout>
-                </Frame>
-
-                <Frame CornerRadius="10">
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="https://img.icons8.com/ios/50/000000/delete-forever.png"/>
-                        <Button x:Name="deleteAccountPage"
-                            Text="Hesabımı Sil"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="StartAndExpand"
-                            VerticalOptions="Center"
-                            BorderRadius="7"
-                            TextTransform="None"
-                            Clicked="DeleteAccount_Page"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

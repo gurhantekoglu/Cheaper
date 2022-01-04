@@ -4,44 +4,46 @@
              xmlns:effects1="clr-namespace:Cheaper.Effects"
              x:Class="Cheaper.View.SignIn.SignInPage"
              NavigationPage.HasNavigationBar="False">
-    <StackLayout Padding="40">
-        <StackLayout VerticalOptions="CenterAndExpand" Spacing="30">
-            <Image x:Name="logo" Aspect="AspectFit"/>
-            <Frame BackgroundColor="#ecf4f7ff" Padding="5">
-                <Entry x:Name="Username" Placeholder="Kullanıcı Adı" Keyboard="Plain">
-                    <Entry.Effects>
-                        <effects1:PlainEntry/>
-                    </Entry.Effects>
-                </Entry>
-            </Frame>
+    <ScrollView>
+        <StackLayout Padding="30">
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="30">
+                <Image x:Name="logo" Aspect="AspectFit"/>
+                <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                    <Entry x:Name="Username" Placeholder="Kullanıcı Adı" Keyboard="Plain">
+                        <Entry.Effects>
+                            <effects1:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
 
-            <Frame BackgroundColor="#ecf4f7ff" Padding="5">
-                <Entry x:Name="Password" Placeholder="Şifre" IsPassword="True" Keyboard="Plain" MaxLength="16">
-                    <Entry.Effects>
-                        <effects1:PlainEntry/>
-                    </Entry.Effects>
-                </Entry>
-            </Frame>
+                <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                    <Entry x:Name="Password" Placeholder="Şifre" IsPassword="True" Keyboard="Plain" MaxLength="16">
+                        <Entry.Effects>
+                            <effects1:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
 
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="createAccountPage"
-                       Text="Hesap Oluşturun"
-                       TextColor="#4285F4"
-                       BackgroundColor="Transparent"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       BorderRadius="7"
-                       TextTransform="None"
-                       Clicked="CreateAccount_Page"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="createAccountPage"
+                           Text="Hesap Oluşturun"
+                           TextColor="#4285F4"
+                           BackgroundColor="Transparent"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           BorderRadius="7"
+                           TextTransform="None"
+                           Clicked="CreateAccount_Page"/>
 
-                <Button Text="Oturum Aç"
-                    TextColor="White"
-                    BackgroundColor="#4285F4"
-                    HorizontalOptions="End"
-                    BorderRadius="7"
-                    TextTransform="None"
-                    Clicked="Home_Page"/>
+                    <Button Text="Oturum Aç"
+                        TextColor="White"
+                        BackgroundColor="#4285F4"
+                        HorizontalOptions="End"
+                        BorderRadius="7"
+                        TextTransform="None"
+                        Clicked="Home_Page"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -2,10 +2,91 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cheaper.View.UserInterface.SearchPage">
-    <StackLayout>
-        <Label Text="Ara" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="40,30"/>
+    <ScrollView>
         <StackLayout>
-            
+            <Label Text="Ara" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="30,20"/>
+            <StackLayout Padding="10,20">
+                <StackLayout Orientation="Horizontal">
+                    <SearchBar x:Name="Search1"
+                               Placeholder="Ürün Arayın"
+                               CancelButtonColor="#DB4437"
+                               TextChanged="Search1_TextChanged"/>
+                    <ImageButton Source="https://img.icons8.com/external-justicon-lineal-justicon/64/000000/external-barcode-ecommerce-justicon-lineal-justicon.png"
+                                 BackgroundColor="Transparent"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Padding="30,20">
+                <Button Text="Yeni Ürün Ekle"
+                        TextColor="White"
+                        BackgroundColor="#4285F4"
+                        HorizontalOptions="Fill"
+                        BorderRadius="7"
+                        TextTransform="None"
+                        Clicked="AddProductPage"/>
+            </StackLayout>
+
+            <CollectionView x:Name="Coll" ItemsLayout="VerticalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Vertical">
+                                <Frame Margin="30,5" WidthRequest="100" HeightRequest="125">
+                                    <StackLayout Orientation="Horizontal" Spacing="15">
+                                        <StackLayout>
+                                            <Image Source="{Binding ProductPhotoUrl}"
+                                                       Aspect="AspectFit"
+                                                       Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       HeightRequest="100"
+                                                       WidthRequest="100"
+                                                       BackgroundColor="Transparent"
+                                                       Margin="30,0,0,0"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                            <StackLayout>
+                                                <Label Text="{Binding ProductName}"
+                                                           FontSize="Subtitle"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Center"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding Price}"
+                                                           FontSize="Subtitle"
+                                                           FontAttributes="Bold"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Center"/>
+                                                <Label Text="TL"
+                                                           FontSize="Subtitle"
+                                                           FontAttributes="Bold"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Center"/>
+                                                <Button Text="Detay"
+                                                        TextColor="#4285F4"
+                                                        BackgroundColor="Transparent"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        WidthRequest="75"
+                                                        BorderRadius="7"
+                                                        TextTransform="None"
+                                                        Clicked="ProductDetail_Page"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

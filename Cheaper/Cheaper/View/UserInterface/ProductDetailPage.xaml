@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects1="clr-namespace:Cheaper.Effects"
+             x:Class="Cheaper.View.UserInterface.ProductDetailPage">
+    <ScrollView>
+        <StackLayout Padding="30,20">
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="30" x:Name="Stack">
+                <StackLayout Spacing="30">
+                    <StackLayout>
+                        <Label Text="Ürün Barkodu"
+                               TextColor="Black"
+                               FontSize="Subtitle"/>
+
+                        <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                            <Entry Text="{Binding ProductBarcode}" Placeholder="Ürün Adı" Keyboard="Plain" IsReadOnly="True">
+                                <Entry.Effects>
+                                    <effects1:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+
+                        <Label Text="Ürün Adı"
+                       TextColor="Black"
+                       FontSize="Subtitle"/>
+
+                        <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                            <Entry Text="{Binding ProductName}" Placeholder="Ürün Adı" Keyboard="Plain" IsReadOnly="True">
+                                <Entry.Effects>
+                                    <effects1:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+
+                        <Frame WidthRequest="150" HeightRequest="150">
+                            <StackLayout>
+                                <Image Source="{Binding ProductPhotoUrl}"
+                                               Aspect="AspectFill"
+                                               WidthRequest="100"
+                                               HeightRequest="100"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <Button Text="Favorilerime Ekle"
+                            TextColor="White"
+                            BackgroundColor="#DB4437"
+                            BorderRadius="7"
+                            TextTransform="None"
+                            Clicked="AddFollowList"/>
+
+                    <Label Text="Detaylar"
+                           TextColor="Black"
+                           FontSize="Subtitle"/>
+
+                    <StackLayout>
+                        <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-user-interface-kiranshastry-lineal-kiranshastry-1.png"
+                                       WidthRequest="25"
+                                       HeightRequest="25"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                <Entry Text="{Binding Username}" IsReadOnly="True">
+                                    <Entry.Effects>
+                                        <effects1:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://img.icons8.com/ios/50/000000/shop.png"
+                                       WidthRequest="25"
+                                       HeightRequest="25"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                <Entry Text="{Binding ShopName}" IsReadOnly="True">
+                                    <Entry.Effects>
+                                        <effects1:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://img.icons8.com/ios/50/000000/turkish-lira.png"
+                                       WidthRequest="25"
+                                       HeightRequest="25"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                <Entry Text="{Binding Price}" IsReadOnly="True">
+                                    <Entry.Effects>
+                                        <effects1:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://img.icons8.com/ios/50/000000/time--v1.png"
+                                       WidthRequest="25"
+                                       HeightRequest="25"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                <Entry Text="{Binding PriceDate}" IsReadOnly="True">
+                                    <Entry.Effects>
+                                        <effects1:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

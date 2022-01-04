@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cheaper.View.UserInterface.DeleteAccountPage">
-    <StackLayout Padding="40,30" Spacing="30" VerticalOptions="Center">
+    <StackLayout Padding="30,30" Spacing="30" VerticalOptions="Center">
         <Label Text="Hesabımı Sil" FontSize="Title"/>
-        <Label Text="Eğer hesabınızı silerseniz tüm kaydedilen verileri kaybedeceksiniz. Onaylıyor musunuz?"/>
+        <Label Text="Eğer hesabınızı silerseniz tüm kaydedilen verilerinizi kaybedeceksiniz. Onaylıyor musunuz?"/>
         <StackLayout Orientation="Horizontal">
             <Button x:Name="createAccountPage"
                        Text="Hayır"

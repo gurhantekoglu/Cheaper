@@ -12,11 +12,12 @@ namespace Cheaper
         public App()
         {
             InitializeComponent();
+
+            MainPage = new NavigationPage(new IntroductionPage());
         }
 
         protected override void OnStart()
         {
-            MainPage = new NavigationPage(new SignInPage());
         }
 
         protected override void OnSleep()

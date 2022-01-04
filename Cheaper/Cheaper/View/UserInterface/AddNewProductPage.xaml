@@ -2,33 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects1="clr-namespace:Cheaper.Effects"
-             x:Class="Cheaper.View.CreateAccount.CreateAccountPage"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="Cheaper.View.UserInterface.AddNewProductPage">
     <ScrollView>
-        <StackLayout Padding="30">
+        <StackLayout Padding="30,20">
             <StackLayout VerticalOptions="CenterAndExpand" Spacing="30">
-                <Image x:Name="logo" Aspect="AspectFit"/>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30">
                     <Frame WidthRequest="150" HeightRequest="150">
                         <StackLayout>
-                            <Image x:Name="UserProfilePhoto"
+                            <Image x:Name="ProductPhoto"
                                    Aspect="AspectFill"
                                    WidthRequest="100"
                                    HeightRequest="100"/>
-                            <Button Text="Profil Fotoğrafı Yükle"
+                            <Button x:Name="TakeImage"
+                                    Text="Ürün Fotoğrafı Yükle"
                                     TextColor="#4285F4"
-                                    BackgroundColor="Transparent"             
+                                    BackgroundColor="Transparent"
                                     BorderRadius="7"
                                     TextTransform="None"
-                                    Clicked="ProfilePhotoSelect"
+                                    Clicked="ProductPhotoSelect"
                                     CornerRadius="7"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
 
+
                 <Frame BackgroundColor="#ecf4f7ff" Padding="5">
-                    <Entry x:Name="Username" Placeholder="Kullanıcı Adı" Keyboard="Plain">
+                    <Entry x:Name="ProductBarcode" Placeholder="Ürün Barkodu" Keyboard="Numeric" MaxLength="13">
                         <Entry.Effects>
                             <effects1:PlainEntry/>
                         </Entry.Effects>
@@ -36,32 +36,42 @@
                 </Frame>
 
                 <Frame BackgroundColor="#ecf4f7ff" Padding="5">
-                    <Entry x:Name="Password" Placeholder="Şifre" IsPassword="True" Keyboard="Plain" MaxLength="16">
+                    <Entry x:Name="ProductName" Placeholder="Ürün Adı" Keyboard="Plain">
                         <Entry.Effects>
                             <effects1:PlainEntry/>
                         </Entry.Effects>
                     </Entry>
                 </Frame>
 
-                <StackLayout Orientation="Horizontal">
-                    <Button x:Name="signInPage"
-                           Text="Oturum Açın"
-                           TextColor="#4285F4"
-                           BackgroundColor="Transparent"
-                           HorizontalOptions="StartAndExpand"
-                           VerticalOptions="Center"
-                           BorderRadius="7"
-                           TextTransform="None"
-                           Clicked="SignIn_Page"/>
+                <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                    <Picker x:Name="Shops"
+                            Title="Market Seç"
+                            BackgroundColor="Transparent"
+                            TextTransform="None">
+                        <Picker.Items>
+                            <x:String>Migros</x:String>
+                            <x:String>A101</x:String>
+                            <x:String>ŞOK</x:String>
+                            <x:String>BİM</x:String>
+                            <x:String>AFTA</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Frame>
 
-                    <Button Text="Hesap Oluştur"
+                <Frame BackgroundColor="#ecf4f7ff" Padding="5">
+                    <Entry x:Name="Price" Placeholder="Ürün Fiyatı" Keyboard="Numeric">
+                        <Entry.Effects>
+                            <effects1:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Button Text="Ekle"
                         TextColor="White"
                         BackgroundColor="#4285F4"
                         HorizontalOptions="End"
                         BorderRadius="7"
                         TextTransform="None"
-                        Clicked="CreateAccount_Clicked"/>
-                </StackLayout>
+                        Clicked="AddNewProduct"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>

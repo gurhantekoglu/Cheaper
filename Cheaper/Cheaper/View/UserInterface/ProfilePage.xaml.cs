@@ -15,6 +15,7 @@ namespace Cheaper.View.UserInterface
     public partial class ProfilePage : ContentPage
     {
         FirebaseConnection firebaseConnection = new FirebaseConnection();
+
         User _user;
 
         public ProfilePage(User user)
@@ -23,8 +24,6 @@ namespace Cheaper.View.UserInterface
 
             BindingContext = user;
             _user = user;
-
-            
         }
 
         private async void ChangePassword_Page(object sender, EventArgs e)

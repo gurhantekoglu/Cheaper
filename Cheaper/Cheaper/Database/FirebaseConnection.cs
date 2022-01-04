@@ -15,7 +15,7 @@ namespace Cheaper.Database
     public class FirebaseConnection
     {
         // Database Connection
-        
+
         FirebaseClient firebase = new FirebaseClient("https://cheaper-1939d-default-rtdb.firebaseio.com/");
 
         FirebaseStorage firebaseStorage = new FirebaseStorage("cheaper-1939d.appspot.com");
@@ -99,15 +99,33 @@ namespace Cheaper.Database
               .OnceAsync<Product>()).Select(item => new Product
               {
                   ProductBarcode = item.Object.ProductBarcode,
-                  Name = item.Object.Name,
+                  ProductName = item.Object.ProductName,
                   Price = item.Object.Price,
                   ShopName = item.Object.ShopName,
                   ProductPhotoUrl = item.Object.ProductPhotoUrl,
-                  PriceDate = item.Object.PriceDate
+                  PriceDate = item.Object.PriceDate,
+                  Username = item.Object.Username
               }).ToList();
         }
 
-        public async Task<Product> GetProduct(string productBarcode)
+        public async Task<Product> GetProduct(string productName)
+        {
+            var allProducts = await GetAllProducts();
+            await firebase
+              .Child("Products")
+              .OnceAsync<Product>();
+            return allProducts.Where(a => a.ProductName == productName).FirstOrDefault();
+        }
+
+        public async Task AddProduct(string productBarcode, string productName, string shopName, string productPhotoUrl, double price, DateTime priceDate, string username)
+        {
+
+            await firebase
+              .Child("Products")
+              .PostAsync(new Product() { ProductBarcode = productBarcode, ProductName = productName, ShopName = shopName, ProductPhotoUrl = productPhotoUrl, Price = price, PriceDate = priceDate, Username = username });
+        }
+
+        public async Task<Product> CheckProductBarcode(string productBarcode)
         {
             var allProducts = await GetAllProducts();
             await firebase
@@ -116,45 +134,73 @@ namespace Cheaper.Database
             return allProducts.Where(a => a.ProductBarcode == productBarcode).FirstOrDefault();
         }
 
-        public async Task AddProduct(string productBarcode, string name, string shopName, string productPhotoUrl, double price, DateTime priceDate)
+        // FollowList Controls
+
+        public async Task<List<Product>> GetAllFollowList()
         {
 
-            await firebase
-              .Child("Products")
-              .PostAsync(new Product() { ProductBarcode = productBarcode, Name = name, ShopName = shopName, ProductPhotoUrl = productPhotoUrl, Price = price, PriceDate = priceDate });
+            return (await firebase
+              .Child("FollowList")
+              .OnceAsync<Product>()).Select(item => new Product
+              {
+                  ProductBarcode = item.Object.ProductBarcode,
+                  ProductName = item.Object.ProductName,
+                  Price = item.Object.Price,
+                  ShopName = item.Object.ShopName,
+                  ProductPhotoUrl = item.Object.ProductPhotoUrl,
+                  PriceDate = item.Object.PriceDate
+              }).ToList();
         }
 
-        public async Task UpdateProduct(string productBarcode, string name, string shopName, string productPhotoUrl, double price, DateTime priceDate)
+        public async Task AddFollowList(string productBarcode, string productName, string shopName, string productPhotoUrl, double price, DateTime priceDate)
         {
-            var toUpdateProduct = (await firebase
-              .Child("Products")
-              .OnceAsync<Product>()).Where(a => a.Object.ProductBarcode == productBarcode).FirstOrDefault();
 
             await firebase
-              .Child("Products")
-              .Child(toUpdateProduct.Key)
-              .PutAsync(new Product() { ProductBarcode = productBarcode, Name = name, ShopName = shopName, ProductPhotoUrl = productPhotoUrl, Price = price, PriceDate = priceDate });
+              .Child("FollowList")
+              .PostAsync(new Product() { ProductBarcode = productBarcode, ProductName = productName, ShopName = shopName, ProductPhotoUrl = productPhotoUrl, Price = price, PriceDate = priceDate });
+        }
+
+        public async Task<Product> CheckFollowListProductBarcode(string productBarcode)
+        {
+            var allFollowList = await GetAllFollowList();
+            await firebase
+              .Child("FollowList")
+              .OnceAsync<Product>();
+            return allFollowList.Where(a => a.ProductBarcode == productBarcode).FirstOrDefault();
+        }
+
+        public async Task DeleteFollowList(string productBarcode)
+        {
+            var toDeleteFollowList = (await firebase
+              .Child("FollowList")
+              .OnceAsync<Product>()).Where(a => a.Object.ProductBarcode == productBarcode).FirstOrDefault();
+            await firebase.Child("FollowList").Child(toDeleteFollowList.Key).DeleteAsync();
         }
 
         // Image Controls
 
         // ProfilePhotos
 
-        public async Task<string> UploadProfilePhoto(Stream fileStream, string fileName)
+        public async Task<string> UploadProfilePhoto(string fileName, Stream imageStream)
         {
-            var imageUrl = await firebaseStorage
+            var uploadPhoto = await new FirebaseStorage("cheaper-1939d.appspot.com")
                 .Child("ProfilePhotos")
                 .Child(fileName)
-                .PutAsync(fileStream);
-            return imageUrl;
+                .PutAsync(imageStream);
+            string imgurl = uploadPhoto;
+            return imgurl;
         }
 
-        public async Task<string> GetUrl(string fileName, FileResult result)
+        // ProductPhotos
+
+        public async Task<string> UploadProductPhoto(string fileName, Stream imageStream)
         {
-            return await firebaseStorage
-                .Child("ProfilePhotos")
-                .Child(fileName)
-                .GetDownloadUrlAsync();
+            var uploadPhoto = await new FirebaseStorage("cheaper-1939d.appspot.com")
+                 .Child("ProductPhotos")
+                 .Child(fileName)
+                 .PutAsync(imageStream);
+            string imgurl = uploadPhoto;
+            return imgurl;
         }
     }
 }

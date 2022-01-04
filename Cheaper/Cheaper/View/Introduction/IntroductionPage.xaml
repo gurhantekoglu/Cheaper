@@ -4,7 +4,7 @@
              x:Class="Cheaper.View.Introduction.IntroductionPage"
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              NavigationPage.HasNavigationBar="False">
-    <StackLayout Padding="40">
+    <StackLayout Padding="30">
 
         <Image x:Name="logo" Aspect="AspectFit"/>
 

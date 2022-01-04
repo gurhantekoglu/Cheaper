@@ -2,10 +2,85 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cheaper.View.UserInterface.FollowListPage">
-    <StackLayout>
-        <Label Text="Takip Listem" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="40,30"/>
+    <ScrollView>
         <StackLayout>
+            <Label Text="Takip Listem" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="30,20"/>
+            <StackLayout>
 
+                <CollectionView x:Name="Coll" ItemsLayout="VerticalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Vertical">
+                                    <Frame Margin="30,5" WidthRequest="100" HeightRequest="150">
+                                        <StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="15">
+                                            <StackLayout>
+                                                <Image Source="{Binding ProductPhotoUrl}"
+                                                       Aspect="AspectFit"
+                                                       Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       HeightRequest="100"
+                                                       WidthRequest="100"
+                                                       BackgroundColor="Transparent"
+                                                       Margin="30,0,0,0"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                                <StackLayout>
+                                                    <Label Text="{Binding ProductName}"
+                                                           FontSize="Subtitle"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Center"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Price}"
+                                                           FontSize="Subtitle"
+                                                           FontAttributes="Bold"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Center"/>
+                                                    <Label Text="TL"
+                                                           FontSize="Subtitle"
+                                                           FontAttributes="Bold"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Center"/>
+                                                    <Button Text="Detay"
+                                                        TextColor="#4285F4"
+                                                        BackgroundColor="Transparent"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        WidthRequest="75"
+                                                        BorderRadius="7"
+                                                        TextTransform="None"
+                                                        Clicked="ProductDetail_Page"
+                                                        CommandParameter="{Binding .}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                            <Button Text="Favorilerimden Kaldır"
+                                                    TextColor="White"
+                                                    BackgroundColor="#DB4437"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    BorderRadius="7"
+                                                    TextTransform="None"
+                                                    Clicked="DeleteFollowList"
+                                                    CommandParameter="{Binding .}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

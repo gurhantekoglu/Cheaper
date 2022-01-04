@@ -21,6 +21,7 @@ namespace Cheaper.View.CreateAccount
     {
         FirebaseConnection firebaseConnection = new FirebaseConnection();
 
+        MediaFile file;
         private string PhotoUrl { get; set; }
 
         public CreateAccountPage()
@@ -32,35 +33,33 @@ namespace Cheaper.View.CreateAccount
 
         private async void ProfilePhotoSelect(object sender, EventArgs e)
         {
-            var question = await DisplayActionSheet("Fotoğraf Yükle", "Kapat", null, "Galeri", "Kamera");
+            var question = await DisplayActionSheet("Profil Fotoğrafı Yükle", "Kapat", null, "Galeri", "Kamera");
             if (question == "Galeri")
             {
-                var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+                var file = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
                 {
                     Title = "Fotoğraf seçin."
                 });
 
-                if (result != null)
+                if (file != null)
                 {
-                    var stream = await result.OpenReadAsync();
+                    var stream = await file.OpenReadAsync();
 
                     UserProfilePhoto.Source = ImageSource.FromStream(() => stream);
-                    PhotoUrl = await firebaseConnection.GetUrl(result.FileName, result);
+                    PhotoUrl = await firebaseConnection.UploadProfilePhoto(file.FileName, await file.OpenReadAsync());
                 }
-
-            } else if (question == "Kamera")
+            }
+            if (question == "Kamera")
             {
+                var file = await MediaPicker.CapturePhotoAsync();
 
-                var result = await MediaPicker.CapturePhotoAsync();
-
-                if (result != null)
+                if (file != null)
                 {
-                    var stream = await result.OpenReadAsync();
+                    var stream = await file.OpenReadAsync();
 
                     UserProfilePhoto.Source = ImageSource.FromStream(() => stream);
-                    PhotoUrl = await firebaseConnection.GetUrl(result.FileName, result);
+                    PhotoUrl = await firebaseConnection.UploadProfilePhoto(file.FileName, await file.OpenReadAsync());
                 }
-
             }
         }
 
