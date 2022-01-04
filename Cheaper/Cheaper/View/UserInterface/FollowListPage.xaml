@@ -7,7 +7,7 @@
             <Label Text="Takip Listem" TextColor="White" FontSize="Medium" BackgroundColor="#4285F4" Padding="30,20"/>
             <StackLayout>
 
-                <CollectionView x:Name="Coll" ItemsLayout="VerticalList">
+                <CollectionView x:Name="Coll" ItemsLayout="VerticalList" Margin="0,20">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
