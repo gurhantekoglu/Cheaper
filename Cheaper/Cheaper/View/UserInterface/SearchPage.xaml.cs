@@ -23,6 +23,7 @@ namespace Cheaper.View.UserInterface
             InitializeComponent();
 
             _user = user;
+            product = product;
         }
 
         private async void AddProductPage(object sender, EventArgs e)
@@ -46,7 +47,9 @@ namespace Cheaper.View.UserInterface
 
         private async void ProductDetail_Page(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProductDetailPage(product));
+            Button btn = (Button)sender;
+            var _product = btn.CommandParameter as Product;
+            await Navigation.PushAsync(new ProductDetailPage(_product));
         }
     }
 }
