@@ -17,17 +17,17 @@ The application front is designed in a user-friendly, simple and attractive way,
 ## Built With
 
 * [Xamarin](https://docs.microsoft.com/tr-tr/xamarin/?WT.mc_id=dotnet-35129-website) - The Xamarin.Forms 5.0.0.2337 framework used 
-* [Firebase](https://firebase.google.com/docs) - Readltime Database Management
+* [Firebase](https://firebase.google.com/docs) - Realtime Database Management
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.https://github.com/sukrucnCbc) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://https://github.com/sukrucnCbc) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
 * **Şükrücan Cebeci** - *Initial work* - [Şükrücan Cebeci](https://github.com/sukrucnCbc)
-* **Gürhan Tekoğlu** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-* **İrem Köroğlu** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Gürhan Tekoğlu** - *Initial work* - [Gürhan Tekoğlu](https://github.com/gurhantekoglu/)
+* **İrem Köroğlu** - *Initial work*
 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
