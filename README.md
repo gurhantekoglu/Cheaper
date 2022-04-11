@@ -11,18 +11,23 @@ This application aims to enable users to query the prices of products in differe
 Since the application development goal is to enable users to reach the product with a cheaper price, the name *"Cheaper"*, which serves this purpose, has been deemed appropriate for the application. Logo work was done on this name and it took place on the application screens.
 The application front is designed in a user-friendly, simple and attractive way, adhering to the UI/UX principles. The frontend design was first designed in Adobe XD and Inkscape environments, and then the code was used with these pilot designs. The application took its final form by making changes and improvements on the pilot designs. Pilot designs are at the bottom.
 
+### Pilot Design
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/pilot.jpeg" width="519" height="423" />
+
 ### Images
-<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg" width="407" height="800" />
-![](https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg =200x)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
-![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris2.jpeg" width="203" height="400" /><img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris3.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris4.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris5.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/kullanıcıadi.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/hesap.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/hesap2.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/profil.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/pasww.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/hesapsil.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/ürünekle.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/ürünekle2.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/üründetay.jpeg" width="203" height="400" />
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/takiplist.jpeg" width="203" height="400" />
 
 ## Built With
 
