@@ -12,8 +12,8 @@ Since the application development goal is to enable users to reach the product w
 The application front is designed in a user-friendly, simple and attractive way, adhering to the UI/UX principles. The frontend design was first designed in Adobe XD and Inkscape environments, and then the code was used with these pilot designs. The application took its final form by making changes and improvements on the pilot designs. Pilot designs are at the bottom.
 
 ### Images
-
-![](https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg =100x20)
+<img src="https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg" width="407" height="800" />
+![](https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg =200x)
 ![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
 ![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
 ![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
