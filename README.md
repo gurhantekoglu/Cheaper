@@ -13,7 +13,7 @@ The application front is designed in a user-friendly, simple and attractive way,
 
 ### Images
 
-![](https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg)
+![](https://github.com/sukrucnCbc/Cheaper/blob/master/images/giris1.jpeg =100x20)
 ![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
 ![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
 ![](https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png)
